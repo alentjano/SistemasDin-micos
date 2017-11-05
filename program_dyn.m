@@ -25,7 +25,10 @@ wrobot = 0; %rad/s
 vrobot = 0; %cm/s
 
 ntarget=1; %initialize first target 
-  
+
+
+%Parametros de controlo
+lambda_alvo=1.5;
 
 while ntarget<=vehicle.TARGET_Number % until robot goes to target 2
    
@@ -62,9 +65,22 @@ while ntarget<=vehicle.TARGET_Number % until robot goes to target 2
    % while simulation is running)
    % the simulation time is stored in sim_time.
    
-   vrobot=100;
-   wrobot=0.3;
    % --- YOUR CODE --- %
+   vrobot=40;
+   wrobot=-lambda_alvo * sin(phirobot - atan2(YTARGET-yrobot,XTARGET-xrobot));
+   
+   
+   %vrobot - linear velocity
+   %wrobot - angular velocity
+   
+   % phirobot - rad
+   % wrobot - rad/s
+   % vrobot - cm/s
+   
+   % dc - vector com distancias para cada sensor
+   
+   % XTARGET - x position of target
+   % YTARGET - y position of target
    
    %-------------------------------------------------------------------------------
    %For future
