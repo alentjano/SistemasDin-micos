@@ -29,6 +29,8 @@ ntarget=1; %initialize first target
 
 %Parametros de controlo
 lambda_alvo=1.5;
+lambda_velocidade=-0.85;
+Vdes=30;
 
 while ntarget<=vehicle.TARGET_Number % until robot goes to target 2
    
@@ -66,7 +68,9 @@ while ntarget<=vehicle.TARGET_Number % until robot goes to target 2
    % the simulation time is stored in sim_time.
    
    % --- YOUR CODE --- %
-   vrobot=40;
+   vrobot=60;
+   g=lambda_velocidade*(vrobot-Vdes);
+   vrobot=vrobot+g;
    wrobot=-lambda_alvo * sin(phirobot - atan2(YTARGET-yrobot,XTARGET-xrobot));
    
    
