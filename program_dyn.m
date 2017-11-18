@@ -31,7 +31,7 @@ ntarget=1; %initialize first target
 lambda_alvo=1.5;
 lambda_velocidade=-1.25;
 dist_i=sqrt((XTARGET-xrobot)^2+(YTARGET-yrobot)^2);
-dist_hist=dist_i*0.70;
+dist_hist=dist_i*0.30;
 lambda_Vdes=-1.25;
 
 while ntarget<=vehicle.TARGET_Number % until robot goes to target 2
